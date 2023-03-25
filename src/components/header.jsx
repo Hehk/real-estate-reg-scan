@@ -1,11 +1,10 @@
+import Logo from '@/components/logo'
 import Button from '@/components/button'
 
 export default function Header() {
     return (
-        <div className="flex justify-between py-3">
-            <h1 className="text-lg md:text-4xl 2xl:text-[3.6vw] font-black text-black">
-                ConTrack
-            </h1>
+        <div className="flex items-center justify-between py-3">
+            <Logo />
             <Button />
         </div>
     )

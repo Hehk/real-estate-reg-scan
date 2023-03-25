@@ -1,4 +1,4 @@
-export default function Button({ text = "Get Started" }) {
+export default function Button({ text = "Try" }) {
     return (
         <a
             href="/chat"
