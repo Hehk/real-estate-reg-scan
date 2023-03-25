@@ -1,16 +1,6 @@
 export function getApiCredentials() {
-  let id = localStorage.getItem('askai_id');
-  let apiKey = localStorage.getItem('askai_api_key');
-
-  if (!id) {
-    id = prompt('Please enter your AskAI ID:');
-    localStorage.setItem('askai_id', id);
-  }
-
-  if (!apiKey) {
-    apiKey = prompt('Please enter your AskAI API key:');
-    localStorage.setItem('askai_api_key', apiKey);
-  }
+  let id = "1679766430895x955804322842017800";
+  let apiKey = "I5Utcu0jHmEsd1fGalCV2DUk6XHUb8";
 
   return {
     id,
