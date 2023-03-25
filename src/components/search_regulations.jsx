@@ -1,14 +1,14 @@
-import { generate } from '../lib/openai'
+import { askAI } from "@/lib/my_ask_ai"
 import { useState } from 'react'
 
-export default function GenerateName() {
+
+export default function SearchRegulations() {
   const [value, setValue] = useState('')
   const [response, setResponse] = useState('')
 
   const onSubmit = async () => {
-    const { choices } = await generate(value)
-    const { text } = choices[0]
-    setResponse(text)
+    const { answer } = await askAI(value)
+    setResponse(answer)
   }
 
   const onChange = (e) => {
@@ -16,12 +16,12 @@ export default function GenerateName() {
   }
 
   return (
-    <>
-      <input value={value} onChange={onChange} />
+    <div className="w-80">
+      <input className="border b-" value={value} onChange={onChange} />
       <button onClick={onSubmit}>Click me</button>
       <div>
         {response}
       </div>
-    </>
+    </div>
   )
 }
