@@ -2,6 +2,8 @@ import Head from 'next/head'
 import SearchRegulations from '@/components/search_regulations'
 import Header from '@/components/header'
 import Hero from '@/components/hero'
+import Problem from '@/components/problem'
+import PainPoints from '@/components/painpoints'
 
 export default function Home() {
   return (
@@ -14,11 +16,12 @@ export default function Home() {
       </Head>
       <main className='bg-gradient-to-r from-blue-50 via-purple-50 to-indigo-50 min-h-screen flex flex-col p-6'>
         <Header />
-        <Hero />
-        <h1>ConTrack</h1>
-        <p>
-        </p>
-        <SearchRegulations />
+        <div className="max-screen-lg mx-auto">
+          <Hero />
+          <Problem />
+          <PainPoints />
+          <SearchRegulations />
+        </div>
       </main>
     </>
   )
