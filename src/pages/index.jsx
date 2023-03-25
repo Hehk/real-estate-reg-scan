@@ -20,7 +20,6 @@ export default function Home() {
           <Hero />
           <Problem />
           <PainPoints />
-          <SearchRegulations />
         </div>
       </main>
     </>
