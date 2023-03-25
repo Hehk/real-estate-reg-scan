@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import GenerateName from '../components/generate_name'
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
       </Head>
       <main>
         <div className={`bg-red-500`}>
-          test
+          <GenerateName />
         </div>
       </main>
     </>
