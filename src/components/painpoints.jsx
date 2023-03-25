@@ -59,10 +59,10 @@ const painPointsData = [
 const PainPoints = () => {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
-      <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">Pain Points</h3>
+      <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">RE Developer Pain Points</h3>
       <ul className="text-lg sm:text-xl lg:text-2xl text-gray-700">
         {painPointsData.map((point, index) => (
-          <li key={index} className="mb-4">
+          <li key={index} className="my-12">
             <span className="font-bold bg-clip-text text-transparent bg-gradient-to-br to-blue-300 via-purple-400 from-indigo-400">
               {point.name}
             </span>{" "}
