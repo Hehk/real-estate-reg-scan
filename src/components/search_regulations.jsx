@@ -1,6 +1,7 @@
 import { askAI } from "@/lib/my_ask_ai"
 import { useState } from 'react'
 import Logo from "@/components/logo";
+import Link from 'next/link'
 
 function Response({ response, loading, references, previousQuestion }) {
   if (loading) {
@@ -16,7 +17,7 @@ function Response({ response, loading, references, previousQuestion }) {
     <div className="max-w-[50vw] mx-auto overflow-y-auto max-h-[75vw] px-2 opacity-80">
       {previousQuestion && <div className="text-lg underline font-bold decoration-purple-500">
         {previousQuestion}
-        </div>}
+      </div>}
       {response}
       {references && references.length > 0 && (
         <ul>
@@ -24,11 +25,11 @@ function Response({ response, loading, references, previousQuestion }) {
             <li key={reference.content} className="mb-4">
               <div className="flex items-start gap-4 font-mono max-w-screen-md mx-auto mt-12">
                 <div className="text-lg tabular-nums font-medium trading-wider underline decoration-2 decoration-purple-400">
-                {i + 1}.
+                  {i + 1}.
                 </div>
                 <div className="mt-0.5">
-                {reference.content.slice(0, 200)}</div>
-                </div>
+                  {reference.content.slice(0, 200)}</div>
+              </div>
             </li>
           ))}
         </ul>
@@ -72,7 +73,7 @@ export default function SearchRegulations() {
       <Response response={response} loading={loading} references={references} previousQuestion={previousQuestion} />
       <form onSubmit={onSubmit} className="sticky bottom-8 flex flex-col gap-4">
 
-      <textarea
+        <textarea
           rows={4}
           value={value}
           onChange={onChange}
