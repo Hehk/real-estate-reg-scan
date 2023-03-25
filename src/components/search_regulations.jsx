@@ -35,7 +35,9 @@ export default function SearchRegulations() {
   const [references, setReferences] = useState([])
   const [loading, setLoading] = useState(false)
 
-  const onSubmit = async () => {
+  const onSubmit = async (e) => {
+    e.preventDefault()
+
     setLoading(true)
     try {
       const response = await askAI(value)
@@ -54,10 +56,16 @@ export default function SearchRegulations() {
 
   return (
     <div>
-      <div className="flex flex-row">
-        <input className="flex-grow py-3 px-3 font-semibold rounded-lg shadow-md hover:shadow-md shadow-purple-200 hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 " value={value} onChange={onChange} />
-        <button onClick={onSubmit} className="ml-3 py-3 px-8 font-semibold rounded-lg shadow-md hover:shadow-md shadow-purple-200 hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 bg-gradient-to-br to-purple-400 from-indigo-400 text-white">Click me</button>
-      </div>
+      <form onSubmit={onSubmit} className="flex flex-row">
+        <input
+          className={`styles.inputField`}
+          value={value}
+          onChange={onChange}
+        />
+        <button type="submit" className={`styles.submitButton`}>
+          Click me
+        </button>
+      </form>
       <Response response={response} loading={loading} references={references} />
     </div>
   )
