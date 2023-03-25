@@ -12,9 +12,18 @@ function Response({ response, loading, references, previousQuestion }) {
     return null
   }
 
+  if (response.includes('<IDK>')) {
+    return <div className="max-w-[50vw] w-full mx-auto overflow-y-auto max-h-[80vh] px-2 opacity-80">
+      {previousQuestion && <div className="text-lg first-letter:capitalize underline font-bold decoration-purple-500">
+        {previousQuestion}
+        </div>}
+      We were not able to find an answer to that question. Try again!
+    </div>
+  }
+
   console.log(references)
   return (
-    <div className="max-w-[50vw] mx-auto overflow-y-auto max-h-[75vw] px-2 opacity-80">
+    <div className="max-w-[50vw] mx-auto overflow-y-auto max-h-[80vh] px-2 opacity-80">
       {previousQuestion && <div className="text-lg underline font-bold decoration-purple-500">
         {previousQuestion}
       </div>}
@@ -68,10 +77,12 @@ export default function SearchRegulations() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center gap-8 mt-12 pb-32">
+    <div className="min-h-screen flex flex-col items-start justify-start gap-8">
+      <div className="flex justify-center w-[80vw] sm:w-[50vw]">
       <Logo />
+      </div>
       <Response response={response} loading={loading} references={references} previousQuestion={previousQuestion} />
-      <form onSubmit={onSubmit} className="sticky bottom-8 flex flex-col gap-4">
+      <form onSubmit={onSubmit} className="absolute bottom-8 flex flex-col gap-4">
 
         <textarea
           rows={4}
